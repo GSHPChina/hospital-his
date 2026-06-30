@@ -1,0 +1,35 @@
+# Backend
+his-server/target/
+his-server/*.class
+his-server/*.jar
+his-server/.mvn/
+his-server/mvnw
+his-server/mvnw.cmd
+
+# Frontend
+his-web/node_modules/
+his-web/dist/
+his-web/.env.local
+his-web/.env.*.local
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak

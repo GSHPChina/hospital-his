@@ -1,0 +1,57 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: hospital-his
+  profiles:
+    active: dev
+
+  # 数据源 (MySQL 初始化时无密码，如需设置密码请修改此处)
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/his_db?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password:
+
+  # Redis (可选，MVP 不需要，注释掉避免报错)
+  # redis:
+  #   host: localhost
+  #   port: 6379
+  #   password:
+  #   database: 0
+
+  # Jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+# MyBatis-Plus
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# JWT
+jwt:
+  secret: HospitalHIS2024SecretKeyForJWTTokenGeneration20240101
+  expiration: 86400000
+
+# Knife4j (Spring Boot 2.x 使用 Springfox)
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+logging:
+  level:
+    com.his: debug
